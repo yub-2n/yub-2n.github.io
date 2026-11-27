@@ -28,6 +28,7 @@
   --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard",-apple-system,"Apple SD Gothic Neo",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;word-break:keep-all}
 a{color:inherit}
@@ -214,18 +215,19 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <div class="meta"><span>2026.10.13 ~ 10.19</span><span>4인 팀</span><span>시계열</span></div>
         <h3>궁·능 관람객 예측과 인력 배치</h3>
         <p class="q">관람객을 미리 예측해서 근무 인원이 모자라거나 남는 비용을 줄일 수 있을까?</p>
-        <div class="metric"><b>−42.8%</b><span>기존 방식 대비 인력 배치 비용 (백테스트, 95% 구간 −49.2 ~ −36.1%)</span></div>
+        <div class="metric"><b>−42.8%</b><span>기존 방식 대비 인력 배치 비용 19.85억 → 11.35억 (백테스트, 95% 구간 −49.2 ~ −36.0%) → 1월 첫 주 231명·일 배치 권고</span></div>
         <p class="role"><b>내 역할</b> 데이터 전처리, 베이스라인·Chronos-2 백테스트 모델링</p>
         <div class="chips"><span class="chip">Chronos-2</span><span class="chip">FVA</span><span class="chip">블록 부트스트랩</span><span class="chip">비용 기반 평가</span></div>
-        <div class="links"><a href="https://github.com/yub-2n/ai-data-bootcamp/blob/main/projects/03_timeseries-forecast-report/v7_%EB%B6%84%EC%84%9D%EB%B3%B4%EA%B3%A0%EC%84%9C.md">최종 분석 보고서 (GitHub)</a><a href="https://github.com/yub-2n/ai-data-bootcamp/tree/main/projects/03_timeseries-forecast-report">코드</a></div>
+        <div class="links"><a href="https://github.com/yub-2n/ai-data-bootcamp/tree/main/projects/03_timeseries-forecast-report">코드·전체 보고서 (GitHub)</a></div>
       </div>
       <div class="viewer" data-viewer>
         <div class="tabs" role="tablist">
-          <button role="tab" data-inline="ts-chart">핵심 결과</button>
-          <button role="tab" data-src="https://yub-2n.github.io/ai-data-bootcamp/projects/03_timeseries-forecast-report/timeseries_modeling_summary.pdf">모델링 정리 PDF</button>
+          <button role="tab" data-src="https://yub-2n.github.io/ai-data-bootcamp/projects/03_timeseries-forecast-report/timeseries_report_summary.pdf">최종 보고서 (13쪽)</button>
+          <button role="tab" data-src="https://yub-2n.github.io/ai-data-bootcamp/projects/03_timeseries-forecast-report/timeseries_final_presentation.pdf">발표 자료 (22쪽)</button>
+          <button role="tab" data-inline="ts-chart">핵심 결과 그래프</button>
         </div>
         <div class="frame">
-          <div class="inline" id="ts-chart">
+          <div class="inline" id="ts-chart" hidden>
             <svg viewBox="0 0 640 360" role="img" aria-label="인력 배치 비용: 직전 7일 평균 19.85억, Chronos-2 14.09억, 공휴일·명절 추가 12.85억, 무료개방일·행사 추가 11.35억">
               <rect width="640" height="360" fill="var(--surface)"/>
               <text x="32" y="44" font-size="19" font-weight="700" fill="var(--ink)">정보를 더할수록 줄어드는 인력 배치 비용</text>
@@ -234,9 +236,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
               <g><rect x="170" y="104" width="380" height="26" rx="5" fill="var(--faint)" opacity=".55"/><rect x="170" y="162" width="269.7" height="26" rx="5" fill="var(--accent)" opacity=".6"/><rect x="170" y="220" width="246" height="26" rx="5" fill="var(--accent)" opacity=".8"/><rect x="170" y="278" width="217.3" height="26" rx="5" fill="var(--accent)"/></g>
               <g font-size="14" font-weight="700" fill="var(--ink)"><text x="558" y="122">19.85</text><text x="447" y="180">14.09</text><text x="424" y="238">12.85</text><text x="395" y="296">11.35 <tspan fill="var(--warm)">−42.8%</tspan></text></g>
             </svg>
-            <p class="note">모델링 정리 PDF는 중간판(정기 원점 26개 기준)이라 숫자가 최종 보고서와 다릅니다. 최종 숫자는 왼쪽 링크의 분석 보고서에 있어요.</p>
+            <p class="note">예측 오차(WAPE) 41.3% → 28.3% · 명절 구간 비용 −68.9% · 2026년 1월 첫째 주 23개소 231명·일 배치 권고</p>
           </div>
-          <iframe title="시계열 모델링 정리 PDF" loading="lazy" hidden></iframe>
+          <iframe title="궁·능 관람객 예측 결과물" loading="lazy"></iframe>
         </div>
         <a class="open" target="_blank" rel="noopener">새 창에서 크게 보기 ↗</a>
       </div>
